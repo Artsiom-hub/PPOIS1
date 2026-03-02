@@ -1,0 +1,20 @@
+@startuml
+class Manuscript {
+  id: str
+  title: str
+  authors: List[str]
+  status: ManuscriptStatus
+  submit()
+  start_review()
+  make_decision()
+}
+
+class Review {
+  reviewer: str
+  recommendation: str
+  status: ReviewStatus
+  submit()
+}
+
+Manuscript "1" o-- "*" Review
+@enduml
