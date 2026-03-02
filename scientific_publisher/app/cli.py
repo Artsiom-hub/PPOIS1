@@ -1,6 +1,6 @@
-from app.models import Manuscript, Review
 from app.repository import ManuscriptRepository
 from app.persistence import save, load
+from app.services import PublishingService
 from app.exceptions import PublishingError
 
 
@@ -17,8 +17,10 @@ def run_cli() -> None:
     repo = ManuscriptRepository()
 
     # загрузка состояния
-    for m in load():
-        repo.add(m)
+    for manuscript in load():
+        repo.add(manuscript)
+
+    service = PublishingService(repo)
 
     while True:
         print_menu()
@@ -27,44 +29,35 @@ def run_cli() -> None:
         try:
             if choice == "1":
                 title = input("Title: ")
-                authors = input("Authors (comma separated): ").split(",")
-                authors = [a.strip() for a in authors]
+                authors_raw = input("Authors (comma separated): ")
+                authors = [a.strip() for a in authors_raw.split(",")]
 
-                manuscript = Manuscript(title=title, authors=authors)
-                repo.add(manuscript)
-
+                manuscript = service.create_manuscript(title, authors)
                 print(f"Created manuscript ID: {manuscript.id}")
 
             elif choice == "2":
-                manuscripts = repo.list_all()
+                manuscripts = service.list_manuscripts()
                 if not manuscripts:
                     print("No manuscripts found.")
+
                 for m in manuscripts:
                     print(
                         f"ID: {m.id} | "
                         f"Title: {m.title} | "
-                        f"Status: {m.status}"
+                        f"Status: {m.status.value}"
                     )
 
             elif choice == "3":
                 manuscript_id = input("Manuscript ID: ")
-                manuscript = repo.get(manuscript_id)
-                manuscript.submit()
-                manuscript.start_review()
+                service.submit_manuscript(manuscript_id)
                 print("Manuscript submitted and sent to review.")
 
             elif choice == "4":
                 manuscript_id = input("Manuscript ID: ")
                 reviewer = input("Reviewer name: ")
-                decision = input("Decision (accept/reject): ")
+                decision = input("Decision (accept/reject): ").lower()
 
-                manuscript = repo.get(manuscript_id)
-                review = Review(reviewer=reviewer)
-                review.submit(decision)
-
-                manuscript.add_review(review)
-                manuscript.make_decision()
-
+                service.add_review(manuscript_id, reviewer, decision)
                 print("Review added and decision evaluated.")
 
             elif choice == "5":
