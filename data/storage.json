@@ -1,0 +1,62 @@
+[
+    {
+        "id": "34ba735c-427b-44b6-8277-93f728955a32",
+        "title": "OSTIS",
+        "authors": [
+            "ZOV"
+        ],
+        "status": "REJECTED",
+        "reviews": [
+            {
+                "reviewer": "YASHALAVA",
+                "recommendation": "accept",
+                "status": "SUBMITTED"
+            },
+            {
+                "reviewer": "DOOD",
+                "recommendation": "reject",
+                "status": "SUBMITTED"
+            }
+        ]
+    },
+    {
+        "id": "d378cc61-7e1d-41e9-90bd-7c93545a58f8",
+        "title": "Abadoob",
+        "authors": [
+            "ivash"
+        ],
+        "status": "REJECTED",
+        "reviews": [
+            {
+                "reviewer": "Neonomi",
+                "recommendation": "reject",
+                "status": "SUBMITTED"
+            },
+            {
+                "reviewer": "Master",
+                "recommendation": "accept",
+                "status": "SUBMITTED"
+            }
+        ]
+    },
+    {
+        "id": "673a2cae-8e43-42a2-a1b3-7a5cb7504cee",
+        "title": "sood",
+        "authors": [
+            "a"
+        ],
+        "status": "ACCEPTED",
+        "reviews": [
+            {
+                "reviewer": "s",
+                "recommendation": "accept",
+                "status": "SUBMITTED"
+            },
+            {
+                "reviewer": "x",
+                "recommendation": "accept",
+                "status": "SUBMITTED"
+            }
+        ]
+    }
+]

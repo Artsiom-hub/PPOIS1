@@ -1,0 +1,62 @@
+{
+    "authors": {
+        "1": {
+            "id": 1,
+            "name": "Ivash",
+            "affiliation": "bsuir",
+            "email": "email1"
+        }
+    },
+    "editors": {
+        "1": {
+            "id": 1,
+            "name": "Ded",
+            "field": "Ananas"
+        }
+    },
+    "articles": {
+        "1": {
+            "id": 1,
+            "title": "Ymni",
+            "authors": [
+                "Ivash"
+            ],
+            "abstract": "1",
+            "status": "layout_ready"
+        },
+        "2": {
+            "id": 2,
+            "title": "yvi",
+            "authors": [
+                "Ivash"
+            ],
+            "abstract": "1",
+            "status": "submitted"
+        },
+        "12": {
+            "id": 12,
+            "title": "ddd",
+            "authors": [
+                "Ivash"
+            ],
+            "abstract": "1",
+            "status": "submitted"
+        }
+    },
+    "journals": {
+        "1": {
+            "id": 1,
+            "name": "Journal1",
+            "field": "Ananas",
+            "articles": [
+                1
+            ]
+        }
+    },
+    "publisher": {
+        "name": "International Science Publisher",
+        "journals": [
+            1
+        ]
+    }
+}
