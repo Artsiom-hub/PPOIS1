@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<students>
+  <student>
+    <full_name>Пчел</full_name>
+    <group>021311</group>
+    <activities>0,1,2,3,4,5,6,7,8,9</activities>
+  </student>
+  <student>
+    <full_name>Чел</full_name>
+    <group>021312</group>
+    <activities>1,2,3,4,5,6,7,8,9,0</activities>
+  </student>
+</students>
