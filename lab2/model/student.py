@@ -4,6 +4,8 @@ from typing import List
 
 @dataclass
 class Student:
-    full_name: str
-    group: str
-    activities: List[int]  
+    def __init__(self, full_name, group, activities, id=None):
+        self.id = id
+        self.full_name = full_name
+        self.group = group
+        self.activities = activities

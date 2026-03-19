@@ -100,9 +100,10 @@ class StudentStorage:
   
     def _row_to_student(self, row) -> Student:
         return Student(
+            id=row[0],
             full_name=row[1],
             group=row[2],
-            activities=list(row[3:13])  
+            activities=list(row[3:13])
         )
 
     
@@ -160,14 +161,11 @@ class StudentStorage:
     def delete(self, name=None, group=None, min_val=None, max_val=None) -> int:
         to_delete = self._filter(name, group, min_val, max_val)
 
-        before = len(to_delete)
-
         for s in to_delete:
-            activities_str = ",".join(map(str, s.activities))
             self.conn.execute(
-                "DELETE FROM students WHERE full_name=? AND group_name=? AND activities=?",
-                (s.full_name, s.group, activities_str)
+                "DELETE FROM students WHERE id=?",
+                (s.id,)
             )
 
         self.conn.commit()
-        return before
+        return len(to_delete)
