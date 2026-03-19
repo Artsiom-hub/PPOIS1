@@ -27,7 +27,7 @@ class SearchDialog(QDialog):
 
         self.search_btn = QPushButton("Найти")
 
-        # 🔥 Таблица результатов (ключевая часть ТЗ)
+        
         self.result_table = QTableWidget(0, 12)
         self.result_table.setHorizontalHeaderLabels(
             ["ФИО", "Группа"] + [f"{i} сем" for i in range(1, 11)]

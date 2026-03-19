@@ -97,15 +97,15 @@ class StudentStorage:
         """)
         self.conn.commit()
 
-    # 🔥 преобразование строки в объект
+  
     def _row_to_student(self, row) -> Student:
         return Student(
             full_name=row[1],
             group=row[2],
-            activities=list(row[3:13])  # ← 10 семестров
+            activities=list(row[3:13])  
         )
 
-    # 🔥 добавить
+    
     def add(self, student: Student):
         if len(student.activities) != 10:
             raise ValueError(f"Ожидалось 10 значений, получено {len(student.activities)}")
@@ -120,12 +120,12 @@ class StudentStorage:
 
         self.conn.commit()
 
-    # 🔥 получить всё
+   
     def get_all(self) -> List[Student]:
         cursor = self.conn.execute("SELECT * FROM students")
         return [self._row_to_student(row) for row in cursor.fetchall()]
 
-    # 🔥 фильтр (тот же, но через get_all)
+    
     def _filter(self, name=None, group=None, min_val=None, max_val=None):
         result = self.get_all()
 
@@ -156,7 +156,7 @@ class StudentStorage:
     def search(self, name=None, group=None, min_val=None, max_val=None):
         return self._filter(name, group, min_val, max_val)
 
-    # 🔥 удаление
+   
     def delete(self, name=None, group=None, min_val=None, max_val=None) -> int:
         to_delete = self._filter(name, group, min_val, max_val)
 

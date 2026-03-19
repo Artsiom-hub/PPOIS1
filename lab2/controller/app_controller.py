@@ -1,4 +1,4 @@
-# controller/app_controller.py
+
 from tkinter import dialog
 from PyQt6.QtWidgets import QFileDialog
 from PyQt6.QtWidgets import QApplication, QMessageBox
@@ -23,7 +23,7 @@ class AppController:
         self.view.delete_action.triggered.connect(self.open_delete_dialog)
         self.view.save_xml_action.triggered.connect(self.save_xml)
         self.view.load_xml_action.triggered.connect(self.load_xml)
-        # биндим события
+        
         self.view.add_action.triggered.connect(self.open_add_dialog)
     def save_xml(self):
         path, _ = QFileDialog.getSaveFileName(
@@ -66,17 +66,17 @@ class AppController:
         dialog = SearchDialog()
 
         def handle_search():
-            print("CLICKED")  # ← сюда
+            print("CLICKED") 
             name = dialog.name_input.text() or None
             group = dialog.group_input.text() or None
 
             min_val = dialog.min_input.text()
             max_val = dialog.max_input.text()
 
-            print("RAW:", min_val, max_val)  # ← сюда
+            print("RAW:", min_val, max_val)  
             min_val = int(min_val) if min_val else None
             max_val = int(max_val) if max_val else None
-            print("PARSED:", min_val, max_val)  # ← сюда
+            print("PARSED:", min_val, max_val)  
             results = self.model.search(name, group, min_val, max_val)
             print("RESULTS:", results)
             dialog.update_results(results)
@@ -104,17 +104,17 @@ class AppController:
             max_val = self._parse_int(dialog.max_input.text())
             return name, group, min_val, max_val
 
-        # превью (чтобы не удалять вслепую)
+        
         def handle_preview():
             name, group, min_val, max_val = collect_inputs()
             candidates = self.model.search(name, group, min_val, max_val)
             dialog.update_results(candidates)
 
-        # удаление
+        
         def handle_delete():
             name, group, min_val, max_val = collect_inputs()
 
-            # защита от "удалить всё"
+            
             if not any([name, group, min_val is not None, max_val is not None]):
                 QMessageBox.warning(
                     dialog,
@@ -123,7 +123,7 @@ class AppController:
                 )
                 return
 
-            # подтверждение
+            
             confirm = QMessageBox.question(
                 dialog,
                 "Подтверждение удаления",
@@ -136,11 +136,11 @@ class AppController:
 
             removed = self.model.delete(name, group, min_val, max_val)
 
-            # обновляем главную таблицу
+            
             self.view.update_table(self.model.get_all())
             self.view.update_tree(self.model.get_all())
 
-            # обновляем превью
+            
             dialog.update_results([])
 
        

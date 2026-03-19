@@ -1,4 +1,4 @@
-# view/main_window.py
+
 from PyQt6.QtWidgets import (
     QMainWindow, QTableWidget, QTableWidgetItem,
     QToolBar,  QMenuBar, QTreeWidget, QTreeWidgetItem, QStackedWidget, 
@@ -18,12 +18,12 @@ class MainWindow(QMainWindow):
         
         self.setWindowTitle("Студенты")
 
-        # Таблица
+        
         self.table = QTableWidget(0, 12)
         self.table.setHorizontalHeaderLabels(
             ["ФИО", "Группа"] + [f"{i} сем" for i in range(1, 11)]
         )
-        # таблица (оставь как есть)
+        
         self.table = QTableWidget(0, 12)
         self.table.setHorizontalHeaderLabels(
             ["ФИО", "Группа"] + [f"{i} сем" for i in range(1, 11)]
@@ -59,17 +59,17 @@ class MainWindow(QMainWindow):
         self.page_size_spin.valueChanged.connect(self.change_page_size)
         
 
-        # 🔥 контейнер (переключение)
+        
         self.stack = QStackedWidget()
 
-        # 🔥 дерево
+        
         self.tree = QTreeWidget()
         self.tree.setHeaderLabels(["Данные"])
 
         self.stack.addWidget(self.table)
         self.stack.addWidget(self.tree)
 
-        # 🔥 главный layout
+        
         layout = QVBoxLayout()
         layout.addWidget(self.stack)
         layout.addLayout(pagination_layout)
@@ -82,14 +82,14 @@ class MainWindow(QMainWindow):
 
    
 
-        # Меню
+       
         menubar = self.menuBar()
         file_menu = menubar.addMenu("Файл")
 
 
         
 
-        # Toolbar
+        
         toolbar = QToolBar()
         self.addToolBar(toolbar)
 
@@ -147,7 +147,7 @@ class MainWindow(QMainWindow):
         page_size = self.page_size
         total_pages = max(1, (total + page_size - 1) // page_size)
 
-        # фикс выхода за границы
+        
         if self.current_page > total_pages:
             self.current_page = total_pages
 
@@ -155,7 +155,7 @@ class MainWindow(QMainWindow):
         end = start + page_size
         page_data = self.current_data[start:end]
 
-        # заполняем таблицу
+        
         self.table.setRowCount(len(page_data))
 
         for row, s in enumerate(page_data):
@@ -165,7 +165,7 @@ class MainWindow(QMainWindow):
             for i, val in enumerate(s.activities):
                 self.table.setItem(row, i + 2, QTableWidgetItem(str(val)))
 
-        # обновляем UI
+        
         self.page_label.setText(f"Страница {self.current_page} / {total_pages}")
         self.total_label.setText(f"Всего: {total}")
     def update_table(self, students):
@@ -194,7 +194,7 @@ class MainWindow(QMainWindow):
         self.tree.clear()
 
         for s in students:
-            root = QTreeWidgetItem([s.full_name])  # имя как корень
+            root = QTreeWidgetItem([s.full_name]) 
 
             root.addChild(QTreeWidgetItem([f"Группа: {s.group}"]))
 

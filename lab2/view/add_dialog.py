@@ -1,4 +1,4 @@
-# view/add_dialog.py
+
 from PyQt6.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton
 
 class AddStudentDialog(QDialog):
