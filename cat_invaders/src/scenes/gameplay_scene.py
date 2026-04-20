@@ -134,8 +134,7 @@ class GameplayScene(BaseScene):
 
     def handle_event(self, event) -> None:
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-            self.is_finished = True
-            self.next_scene_name = "pause"
+            self.request_push_scene = "pause"
 
     def update(self, dt: float) -> None:
         if not self.player.is_alive:

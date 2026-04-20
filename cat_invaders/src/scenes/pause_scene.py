@@ -8,8 +8,8 @@ from src.core.scene_manager import BaseScene
 class PauseScene(BaseScene):
     """
     Пауза.
-    ESC — вернуться в игру
-    ENTER — в меню
+    ESC — продолжить игру
+    ENTER — выйти в меню
     """
 
     def on_enter(self, **kwargs) -> None:
@@ -19,14 +19,15 @@ class PauseScene(BaseScene):
     def handle_event(self, event) -> None:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                self.is_finished = True
-                self.next_scene_name = "gameplay"
+                self.request_pop = True
             elif event.key == pygame.K_RETURN:
                 self.is_finished = True
                 self.next_scene_name = "menu"
 
     def render(self, screen) -> None:
-        screen.fill((18, 18, 18))
+        overlay = pygame.Surface((self.game.width, self.game.height), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 160))
+        screen.blit(overlay, (0, 0))
 
         title = self.title_font.render("PAUSED", True, (255, 255, 0))
         line1 = self.info_font.render("ESC - CONTINUE", True, (255, 255, 255))
