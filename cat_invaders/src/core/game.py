@@ -44,7 +44,6 @@ class Game:
         self.resource_manager = ResourceManager(BASE_DIR)
         self.scene_manager = SceneManager(self)
         self.high_score_manager = HighScoreManager(CONFIGS_DIR / "high_scores.json")
-        print("HIGH SCORE MANAGER READY")
         self.clock = pygame.time.Clock()
         self.screen = self._create_display()
 
