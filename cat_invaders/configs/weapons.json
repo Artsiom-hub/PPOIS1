@@ -1,0 +1,72 @@
+{
+  "basic_laser": {
+  "type": "single",
+  "damage": 1,
+  "speed": 700,
+  "cooldown": 0.25
+  },  
+  "blaster": {
+    "type": "single",
+    "damage": 1,
+    "cooldown": 0.25,
+    "projectile": "player_basic_bullet"
+  },
+
+    "spread_shot": {
+    "type": "spread",
+    "damage": 1,
+    "cooldown": 0.45,
+    "projectile": "player_spread_bullet",
+    "bullets": 3,
+    "angle": 20,
+    "speed": 700
+    },
+
+  "laser_beam": {
+    "type": "laser",
+    "damage": 5,
+    "cooldown": 1.2,
+    "duration": 0.4,
+    "piercing": true
+  },
+
+  "rapid_cannon": {
+    "type": "single",
+    "damage": 1,
+    "cooldown": 0.1,
+    "projectile": "player_fast_bullet"
+  },
+
+  "enemy_basic": {
+    "type": "single",
+    "damage": 1,
+    "cooldown": 1.2,
+    "projectile": "enemy_basic_bullet"
+  },
+    "enemy_mine": {
+        "type": "mine",
+        "damage": 2,
+        "cooldown": 2.4,
+        "projectile": "enemy_mine",
+        "speed": 140,
+        "lifetime": 8.0,
+        "piercing": false
+    },
+
+  "enemy_sniper": {
+    "type": "single",
+    "damage": 3,
+    "cooldown": 2.5,
+    "projectile": "enemy_sniper_bullet"
+  },
+  
+
+  "enemy_spread": {
+    "type": "spread",
+    "damage": 1,
+    "cooldown": 1.8,
+    "projectile": "enemy_spread_bullet",
+    "bullets": 3,
+    "angle": 25
+  }
+}

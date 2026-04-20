@@ -1,0 +1,33 @@
+{
+  "wave_id": 7,
+  "name": "Mixed Pressure",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shooter_drone",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -80,
+      "spacing": 180
+    },
+    {
+      "time": 2.4,
+      "enemy_type": "kamikaze",
+      "count": 4,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -100,
+      "spacing": 90
+    },
+    {
+      "time": 5.0,
+      "enemy_type": "scout",
+      "count": 5,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -40,
+      "spacing": 90
+    }
+  ]
+}

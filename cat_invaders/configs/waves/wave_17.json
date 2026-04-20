@@ -1,0 +1,33 @@
+{
+  "wave_id": 17,
+  "name": "Hunter Screen",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "sniper",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -80,
+      "spacing": 180
+    },
+    {
+      "time": 3.2,
+      "enemy_type": "heavy_fighter",
+      "count": 2,
+      "formation": "line",
+      "start_x": 280,
+      "start_y": -70,
+      "spacing": 260
+    },
+    {
+      "time": 6.2,
+      "enemy_type": "zigzag_scout",
+      "count": 6,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -90,
+      "spacing": 80
+    }
+  ]
+}

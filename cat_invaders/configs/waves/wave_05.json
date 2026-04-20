@@ -1,0 +1,24 @@
+{
+  "wave_id": 5,
+  "name": "Dive Test",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "kamikaze",
+      "count": 4,
+      "formation": "line",
+      "start_x": 170,
+      "start_y": -60,
+      "spacing": 140
+    },
+    {
+      "time": 3.5,
+      "enemy_type": "shooter_drone",
+      "count": 4,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -80,
+      "spacing": 150
+    }
+  ]
+}

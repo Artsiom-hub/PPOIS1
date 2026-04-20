@@ -1,0 +1,33 @@
+{
+  "wave_id": 16,
+  "name": "Relentless Pattern",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "mine_layer",
+      "count": 2,
+      "formation": "line",
+      "start_x": 260,
+      "start_y": -90,
+      "spacing": 280
+    },
+    {
+      "time": 2.8,
+      "enemy_type": "teleporter",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -60,
+      "spacing": 180
+    },
+    {
+      "time": 5.4,
+      "enemy_type": "shooter_drone",
+      "count": 4,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -70,
+      "spacing": 150
+    }
+  ]
+}

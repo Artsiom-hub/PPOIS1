@@ -1,0 +1,26 @@
+{
+  "player": {
+    "speed": 420,
+    "hp": 1,
+    "lives": 3,
+    "hitbox": {
+      "x": 10,
+      "y": 8,
+      "w": 44,
+      "h": 36
+    },
+    "sprite": "assets/images/player/player.png"
+  },
+  "weapon": {
+    "default": "blaster",
+    "fire_rate": 0.25
+  },
+  "movement": {
+    "acceleration": 1800,
+    "friction": 0.85
+  },
+  "bounds": {
+    "min_x": 20,
+    "max_x": 880
+  }
+}

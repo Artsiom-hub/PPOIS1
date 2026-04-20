@@ -1,0 +1,42 @@
+{
+  "wave_id": 20,
+  "name": "Core Overlord",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "mini_boss",
+      "count": 1,
+      "formation": "line",
+      "start_x": 450,
+      "start_y": -120,
+      "spacing": 0
+    },
+    {
+      "time": 4.5,
+      "enemy_type": "shooter_drone",
+      "count": 4,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -70,
+      "spacing": 150
+    },
+    {
+      "time": 7.0,
+      "enemy_type": "kamikaze",
+      "count": 4,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -100,
+      "spacing": 90
+    },
+    {
+      "time": 10.0,
+      "enemy_type": "shielded",
+      "count": 3,
+      "formation": "line",
+      "start_x": 170,
+      "start_y": -80,
+      "spacing": 190
+    }
+  ]
+}

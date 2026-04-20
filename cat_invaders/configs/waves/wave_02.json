@@ -1,0 +1,24 @@
+{
+  "wave_id": 2,
+  "name": "First Maneuvers",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "zigzag_scout",
+      "count": 5,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -50,
+      "spacing": 90
+    },
+    {
+      "time": 4.2,
+      "enemy_type": "scout",
+      "count": 6,
+      "formation": "line",
+      "start_x": 90,
+      "start_y": -40,
+      "spacing": 90
+    }
+  ]
+}

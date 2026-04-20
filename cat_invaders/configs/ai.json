@@ -1,0 +1,14 @@
+{
+  "enemy_behavior": {
+    "hover_follow_strength": 1.2,
+    "zigzag_tracking_strength": 0.6,
+    "teleport_chase_strength": 2.0,
+    "dive_speed_multiplier": 1.6
+  },
+
+  "anti_camp": {
+    "edge_zone": 80,
+    "trigger_time": 3.0,
+    "spawn_enemy": "teleporter"
+  }
+}

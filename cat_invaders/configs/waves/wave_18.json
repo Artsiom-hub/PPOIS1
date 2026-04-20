@@ -1,0 +1,33 @@
+{
+  "wave_id": 18,
+  "name": "Convergence",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shielded",
+      "count": 3,
+      "formation": "line",
+      "start_x": 170,
+      "start_y": -80,
+      "spacing": 190
+    },
+    {
+      "time": 2.8,
+      "enemy_type": "teleporter",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -60,
+      "spacing": 180
+    },
+    {
+      "time": 5.4,
+      "enemy_type": "kamikaze",
+      "count": 5,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -100,
+      "spacing": 85
+    }
+  ]
+}

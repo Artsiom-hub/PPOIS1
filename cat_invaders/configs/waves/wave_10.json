@@ -1,0 +1,24 @@
+{
+  "wave_id": 10,
+  "name": "Shield Wall",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shielded",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -70,
+      "spacing": 180
+    },
+    {
+      "time": 4.5,
+      "enemy_type": "scout",
+      "count": 6,
+      "formation": "line",
+      "start_x": 90,
+      "start_y": -40,
+      "spacing": 90
+    }
+  ]
+}

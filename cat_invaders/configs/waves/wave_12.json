@@ -1,0 +1,33 @@
+{
+  "wave_id": 12,
+  "name": "Triple Threat",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "sniper",
+      "count": 2,
+      "formation": "line",
+      "start_x": 260,
+      "start_y": -70,
+      "spacing": 300
+    },
+    {
+      "time": 2.8,
+      "enemy_type": "kamikaze",
+      "count": 4,
+      "formation": "line",
+      "start_x": 170,
+      "start_y": -60,
+      "spacing": 140
+    },
+    {
+      "time": 5.4,
+      "enemy_type": "shooter_drone",
+      "count": 3,
+      "formation": "line",
+      "start_x": 220,
+      "start_y": -60,
+      "spacing": 180
+    }
+  ]
+}

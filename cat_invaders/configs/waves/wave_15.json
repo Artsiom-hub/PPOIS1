@@ -1,0 +1,24 @@
+{
+  "wave_id": 15,
+  "name": "Fortified Wing",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shielded",
+      "count": 4,
+      "formation": "line",
+      "start_x": 120,
+      "start_y": -70,
+      "spacing": 160
+    },
+    {
+      "time": 4.0,
+      "enemy_type": "kamikaze",
+      "count": 5,
+      "formation": "line",
+      "start_x": 120,
+      "start_y": -60,
+      "spacing": 150
+    }
+  ]
+}

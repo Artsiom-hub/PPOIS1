@@ -1,0 +1,33 @@
+{
+  "wave_id": 8,
+  "name": "Sniper Lane",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "sniper",
+      "count": 2,
+      "formation": "line",
+      "start_x": 260,
+      "start_y": -70,
+      "spacing": 300
+    },
+    {
+      "time": 3.0,
+      "enemy_type": "zigzag_scout",
+      "count": 5,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -50,
+      "spacing": 90
+    },
+    {
+      "time": 6.0,
+      "enemy_type": "kamikaze",
+      "count": 3,
+      "formation": "line",
+      "start_x": 200,
+      "start_y": -60,
+      "spacing": 180
+    }
+  ]
+}

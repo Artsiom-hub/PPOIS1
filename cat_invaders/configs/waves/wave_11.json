@@ -1,0 +1,24 @@
+{
+  "wave_id": 11,
+  "name": "Teleport Disturbance",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "teleporter",
+      "count": 3,
+      "formation": "line",
+      "start_x": 180,
+      "start_y": -60,
+      "spacing": 180
+    },
+    {
+      "time": 3.8,
+      "enemy_type": "zigzag_scout",
+      "count": 5,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -80,
+      "spacing": 75
+    }
+  ]
+}

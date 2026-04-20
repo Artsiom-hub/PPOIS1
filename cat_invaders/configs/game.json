@@ -1,0 +1,43 @@
+{
+  "window": {
+    "width": 900,
+    "height": 700,
+    "caption": "Cat Invaders",
+    "fullscreen": false,
+    "icon": "assets/images/ui/icon.png"
+  },
+  "performance": {
+    "fps": 60,
+    "vsync": false
+  },
+  "gameplay": {
+    "starting_wave": 1,
+    "max_lives": 3,
+    "invulnerability_time": 1.0
+  },
+  "controls": {
+    "move_left": "K_LEFT",
+    "move_right": "K_RIGHT",
+    "shoot": "K_SPACE",
+    "pause": "K_ESCAPE"
+  },
+  "audio": {
+    "master_volume": 0.8,
+    "music_volume": 0.5,
+    "effects_volume": 0.7,
+    "music_menu": "assets/sounds/music_menu.ogg",
+    "music_gameplay": "assets/sounds/music_gameplay.ogg",
+    "sound_player_shot": "assets/sounds/shoot_player.wav",
+    "sound_enemy_shot": "assets/sounds/shoot_enemy.wav",
+    "sound_explosion": "assets/sounds/explosion.wav",
+    "sound_drop_pickup": "assets/sounds/drop_pickup.wav",
+    "sound_player_hit": "assets/sounds/player_hit.wav",
+    "music_game_over": "assets/sounds/game_over.ogg"
+  },
+    "ui": {
+    "font_main_size": 36,
+    "font_title_size": 72,
+    "font_small_size": 28
+  }
+  
+}

@@ -1,0 +1,33 @@
+{
+  "wave_id": 13,
+  "name": "Heavy Mesh",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "heavy_fighter",
+      "count": 3,
+      "formation": "line",
+      "start_x": 170,
+      "start_y": -80,
+      "spacing": 180
+    },
+    {
+      "time": 3.5,
+      "enemy_type": "zigzag_scout",
+      "count": 6,
+      "formation": "line",
+      "start_x": 90,
+      "start_y": -50,
+      "spacing": 90
+    },
+    {
+      "time": 6.5,
+      "enemy_type": "kamikaze",
+      "count": 4,
+      "formation": "v_shape",
+      "start_x": 450,
+      "start_y": -90,
+      "spacing": 90
+    }
+  ]
+}

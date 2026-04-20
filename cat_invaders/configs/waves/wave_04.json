@@ -1,0 +1,24 @@
+{
+  "wave_id": 4,
+  "name": "First Fire",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shooter_drone",
+      "count": 3,
+      "formation": "line",
+      "start_x": 220,
+      "start_y": -60,
+      "spacing": 180
+    },
+    {
+      "time": 3.8,
+      "enemy_type": "scout",
+      "count": 5,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -40,
+      "spacing": 90
+    }
+  ]
+}

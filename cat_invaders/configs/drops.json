@@ -1,0 +1,23 @@
+{
+  "basic": [
+    { "item": "spread_shot", "chance": 0.12 },
+    { "item": "rapid_cannon", "chance": 0.10 },
+    { "item": "repair", "chance": 0.08 },
+    { "item": "score_bonus", "chance": 0.10 }
+  ],
+
+  "elite": [
+    { "item": "spread_shot", "chance": 0.18 },
+    { "item": "laser_beam", "chance": 0.12 },
+    { "item": "rapid_cannon", "chance": 0.15 },
+    { "item": "repair", "chance": 0.12 },
+    { "item": "shield", "chance": 0.08 }
+  ],
+
+  "boss": [
+    { "item": "laser_beam", "chance": 0.25 },
+    { "item": "rapid_cannon", "chance": 0.25 },
+    { "item": "spread_shot", "chance": 0.25 },
+    { "item": "extra_life", "chance": 0.15 }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "scout": {
+    "hp": 1,
+    "speed": 180,
+    "score": 100,
+    "sprite": "assets/images/enemies/scout.png",
+    "movement": "straight",
+    "fire": "none",
+    "weapon": null,
+    "drop_table": "basic"
+  },
+
+  "zigzag_scout": {
+    "hp": 2,
+    "speed": 200,
+    "score": 150,
+    "sprite": "assets/images/enemies/zigzag.png",
+    "movement": "zigzag",
+    "fire": "none",
+    "weapon": null,
+    "drop_table": "basic"
+  },
+
+  "shooter_drone": {
+    "hp": 3,
+    "speed": 120,
+    "score": 200,
+    "sprite": "assets/images/enemies/shooter.png",
+    "movement": "hover",
+    "fire": "single",
+    "weapon": "enemy_basic",
+    "drop_table": "basic"
+  },
+
+  "heavy_fighter": {
+    "hp": 8,
+    "speed": 80,
+    "score": 400,
+    "sprite": "assets/images/enemies/heavy.png",
+    "movement": "slow_forward",
+    "fire": "single",
+    "weapon": "enemy_basic",
+    "drop_table": "elite"
+  },
+
+  "kamikaze": {
+    "hp": 2,
+    "speed": 260,
+    "score": 180,
+    "sprite": "assets/images/enemies/kamikaze.png",
+    "movement": "dive",
+    "fire": "none",
+    "weapon": null,
+    "drop_table": "basic"
+  },
+
+  "sniper": {
+    "hp": 3,
+    "speed": 90,
+    "score": 300,
+    "sprite": "assets/images/enemies/sniper.png",
+    "movement": "hover",
+    "fire": "sniper",
+    "weapon": "enemy_sniper",
+    "drop_table": "elite"
+  },
+
+    "mine_layer": {
+    "hp": 4,
+    "speed": 100,
+    "score": 250,
+    "sprite": "assets/images/enemies/miner.png",
+    "movement": "slow_forward",
+    "fire": "drop_mines",
+    "weapon": "enemy_mine",
+    "drop_table": "elite"
+    },
+
+  "teleporter": {
+    "hp": 3,
+    "speed": 150,
+    "score": 350,
+    "sprite": "assets/images/enemies/teleporter.png",
+    "movement": "teleport",
+    "fire": "single",
+    "weapon": "enemy_basic",
+    "drop_table": "elite"
+  },
+
+  "shielded": {
+    "hp": 6,
+    "shield": 4,
+    "speed": 110,
+    "score": 400,
+    "sprite": "assets/images/enemies/shielded.png",
+    "movement": "straight",
+    "fire": "single",
+    "weapon": "enemy_basic",
+    "drop_table": "elite"
+  },
+
+  "mini_boss": {
+    "hp": 30,
+    "speed": 70,
+    "score": 1500,
+    "sprite": "assets/images/enemies/miniboss.png",
+    "movement": "boss_pattern",
+    "fire": "spread",
+    "weapon": "enemy_spread",
+    "drop_table": "boss"
+  }
+}

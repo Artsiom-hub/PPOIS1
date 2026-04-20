@@ -1,0 +1,33 @@
+{
+  "wave_id": 14,
+  "name": "Crossfire Grid",
+  "spawns": [
+    {
+      "time": 0.5,
+      "enemy_type": "shooter_drone",
+      "count": 4,
+      "formation": "line",
+      "start_x": 140,
+      "start_y": -70,
+      "spacing": 150
+    },
+    {
+      "time": 3.0,
+      "enemy_type": "sniper",
+      "count": 2,
+      "formation": "line",
+      "start_x": 260,
+      "start_y": -100,
+      "spacing": 300
+    },
+    {
+      "time": 6.0,
+      "enemy_type": "teleporter",
+      "count": 2,
+      "formation": "line",
+      "start_x": 300,
+      "start_y": -60,
+      "spacing": 220
+    }
+  ]
+}
