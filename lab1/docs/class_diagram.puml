@@ -1,0 +1,90 @@
+@startuml
+
+class PublishingHouse {
+    name: str
+    journals: List[int]
+    +add_journal(journal_id)
+}
+
+class Journal {
+    id: int
+    name: str
+    field: str
+    articles: List[int]
+    +add_article(article_id)
+}
+
+class ScientificArticle {
+    id: int
+    title: str
+    authors: List[str]
+    abstract: str
+    status: str
+    +change_status(status)
+}
+
+class Author {
+    id: int
+    name: str
+    affiliation: str
+    email: str
+}
+
+class Editor {
+    id: int
+    name: str
+    field: str
+    +review_article(article_id)
+}
+
+class PrintedEdition {
+    journal_id: int
+    issue_number: int
+    copies: int
+    articles: List[int]
+    +print_issue()
+}
+
+class ElectronicVersion {
+    journal_id: int
+    url: str
+    +publish()
+}
+
+class ArticleSubmissionService {
+    +submit(article)
+}
+
+class PeerReviewService {
+    +review(article, editor)
+}
+
+class LayoutServiceImpl {
+    +layout(article)
+}
+
+class PrintService {
+    +print_journal(edition)
+}
+
+class ElectronicPublishingService {
+    +release(version)
+}
+
+class DistributionServiceImpl {
+    +distribute(edition_id)
+}
+
+PublishingHouse --> Journal
+Journal --> ScientificArticle
+ScientificArticle --> Author
+Editor --> ScientificArticle
+
+PrintService --> PrintedEdition
+ElectronicPublishingService --> ElectronicVersion
+
+ArticleSubmissionService --> ScientificArticle
+PeerReviewService --> ScientificArticle
+LayoutServiceImpl --> ScientificArticle
+
+@enduml

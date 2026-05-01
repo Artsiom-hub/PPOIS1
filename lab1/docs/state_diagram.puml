@@ -1,0 +1,12 @@
+@startuml
+
+[*] --> submitted
+
+submitted --> reviewed : peer review
+reviewed --> layout_ready : layout
+
+layout_ready --> published : print / electronic
+
+published --> distributed : distribution
+
+@enduml
