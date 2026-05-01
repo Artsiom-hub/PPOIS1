@@ -1,8 +1,0 @@
-@startuml
-[*] --> DRAFT
-DRAFT --> SUBMITTED : submit()
-SUBMITTED --> UNDER_REVIEW : start_review()
-UNDER_REVIEW --> ACCEPTED : majority_accept
-UNDER_REVIEW --> REJECTED : majority_reject
-ACCEPTED --> PUBLISHED
-@enduml

@@ -1,6 +1,26 @@
 {
   "scores": [
     {
+      "name": "GEY",
+      "score": 19480,
+      "wave": 15
+    },
+    {
+      "name": "PLAYER",
+      "score": 15980,
+      "wave": 15
+    },
+    {
+      "name": "GOY",
+      "score": 7270,
+      "wave": 6
+    },
+    {
+      "name": "PLAYER",
+      "score": 5560,
+      "wave": 6
+    },
+    {
       "name": "TEST",
       "score": 2350,
       "wave": 3
