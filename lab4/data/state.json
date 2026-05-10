@@ -1,0 +1,88 @@
+{
+    "authors": {
+        "1": {
+            "id": 1,
+            "name": "Ivan",
+            "affiliation": "bsuir",
+            "email": "email1"
+        },
+        "11": {
+            "id": 11,
+            "name": "Grenka",
+            "affiliation": "PPPPPP",
+            "email": "yee@bsuir.by"
+        }
+    },
+    "editors": {
+        "1": {
+            "id": 1,
+            "name": "Ded",
+            "field": "Ananas"
+        }
+    },
+    "articles": {
+        "1": {
+            "id": 1,
+            "title": "Ymni",
+            "authors": [
+                "Ivan"
+            ],
+            "abstract": "1",
+            "status": "layout_ready"
+        },
+        "2": {
+            "id": 2,
+            "title": "yvi",
+            "authors": [
+                "Ivan"
+            ],
+            "abstract": "1",
+            "status": "submitted"
+        },
+        "12": {
+            "id": 12,
+            "title": "ddd",
+            "authors": [
+                "Ivash"
+            ],
+            "abstract": "1",
+            "status": "submitted"
+        },
+        "3": {
+            "id": 3,
+            "title": "BATTON",
+            "authors": [
+                "Grenka"
+            ],
+            "abstract": "eqhehegh",
+            "status": "layout_ready"
+        },
+        "5": {
+            "id": 5,
+            "title": "anal",
+            "authors": [
+                "Ivan",
+                "Grenka"
+            ],
+            "abstract": "1",
+            "status": "submitted"
+        }
+    },
+    "journals": {
+        "1": {
+            "id": 1,
+            "name": "Journal1",
+            "field": "Ananas",
+            "articles": [
+                1,
+                3
+            ]
+        }
+    },
+    "publisher": {
+        "name": "International Science Publisher",
+        "journals": [
+            1
+        ]
+    }
+}

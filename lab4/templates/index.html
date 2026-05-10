@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Веб-интерфейс издательства</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <header class="header">
+        <h1>Веб-интерфейс системы издательства</h1>
+        <p>
+            Лабораторная работа №4. Клиент-серверное приложение на Flask,
+            использующее модель и бизнес-логику из лабораторной работы №1.
+        </p>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="messages">
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <section class="card">
+        <h2>Текущее состояние издательства</h2>
+
+        {% if publisher %}
+            <p><strong>Название издательства:</strong> {{ publisher.name }}</p>
+
+            {% if publisher.journals %}
+                <p><strong>ID журналов издательства:</strong> {{ publisher.journals | join(", ") }}</p>
+            {% else %}
+                <p>В издательство пока не добавлены журналы.</p>
+            {% endif %}
+        {% else %}
+            <p>Издательство не создано.</p>
+        {% endif %}
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+            <h2>Добавить автора</h2>
+
+            <form action="{{ url_for('add_author') }}" method="post">
+                <label>
+                    ID автора
+                    <input type="number" name="id" required>
+                </label>
+
+                <label>
+                    Имя автора
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Организация
+                    <input type="text" name="affiliation" required>
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+
+                <button type="submit">Добавить автора</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Добавить редактора</h2>
+
+            <form action="{{ url_for('add_editor') }}" method="post">
+                <label>
+                    ID редактора
+                    <input type="number" name="id" required>
+                </label>
+
+                <label>
+                    Имя редактора
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Научная область
+                    <input type="text" name="field" required>
+                </label>
+
+                <button type="submit">Добавить редактора</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Подать статью</h2>
+
+            <form action="{{ url_for('submit_article') }}" method="post">
+                <label>
+                    ID статьи
+                    <input type="number" name="id" required>
+                </label>
+
+                <label>
+                    Название статьи
+                    <input type="text" name="title" required>
+                </label>
+
+                <label>
+                    Аннотация
+                    <textarea name="abstract" rows="4" required></textarea>
+                </label>
+
+                <label>
+                    ID авторов через запятую
+                    <input type="text" name="author_ids" placeholder="Например: 1, 2" required>
+                </label>
+
+                <button type="submit">Подать статью</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Добавить журнал</h2>
+
+            <form action="{{ url_for('add_journal') }}" method="post">
+                <label>
+                    ID журнала
+                    <input type="number" name="id" required>
+                </label>
+
+                <label>
+                    Название журнала
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Научная область
+                    <input type="text" name="field" required>
+                </label>
+
+                <button type="submit">Добавить журнал</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+            <h2>Рецензировать статью</h2>
+
+            <form action="{{ url_for('review_article') }}" method="post">
+                <label>
+                    Статья
+                    <select name="article_id" required>
+                        <option value="">Выберите статью</option>
+                        {% for article_id, article in articles.items() %}
+                            <option value="{{ article_id }}">
+                                {{ article_id }} — {{ article.title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label>
+                    Редактор
+                    <select name="editor_id" required>
+                        <option value="">Выберите редактора</option>
+                        {% for editor_id, editor in editors.items() %}
+                            <option value="{{ editor_id }}">
+                                {{ editor_id }} — {{ editor.name }} / {{ editor.field }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <button type="submit">Рецензировать</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Подготовить статью к публикации</h2>
+
+            <form action="{{ url_for('layout_article') }}" method="post">
+                <label>
+                    Статья
+                    <select name="article_id" required>
+                        <option value="">Выберите статью</option>
+                        {% for article_id, article in articles.items() %}
+                            <option value="{{ article_id }}">
+                                {{ article_id }} — {{ article.title }} / {{ article.status }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <button type="submit">Выполнить верстку</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Добавить статью в журнал</h2>
+
+            <form action="{{ url_for('add_article_to_journal') }}" method="post">
+                <label>
+                    Статья
+                    <select name="article_id" required>
+                        <option value="">Выберите статью</option>
+                        {% for article_id, article in articles.items() %}
+                            <option value="{{ article_id }}">
+                                {{ article_id }} — {{ article.title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label>
+                    Журнал
+                    <select name="journal_id" required>
+                        <option value="">Выберите журнал</option>
+                        {% for journal_id, journal in journals.items() %}
+                            <option value="{{ journal_id }}">
+                                {{ journal_id }} — {{ journal.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <button type="submit">Добавить в журнал</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Напечатать журнал</h2>
+
+            <form action="{{ url_for('print_journal') }}" method="post">
+                <label>
+                    Журнал
+                    <select name="journal_id" required>
+                        <option value="">Выберите журнал</option>
+                        {% for journal_id, journal in journals.items() %}
+                            <option value="{{ journal_id }}">
+                                {{ journal_id }} — {{ journal.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label>
+                    Номер выпуска
+                    <input type="number" name="issue_number" min="1" required>
+                </label>
+
+                <label>
+                    Количество экземпляров
+                    <input type="number" name="copies" min="1" required>
+                </label>
+
+                <button type="submit">Напечатать выпуск</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+            <h2>Выпустить электронную версию</h2>
+
+            <form action="{{ url_for('publish_electronic') }}" method="post">
+                <label>
+                    Журнал
+                    <select name="journal_id" required>
+                        <option value="">Выберите журнал</option>
+                        {% for journal_id, journal in journals.items() %}
+                            <option value="{{ journal_id }}">
+                                {{ journal_id }} — {{ journal.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label>
+                    URL электронной версии
+                    <input type="url" name="url" placeholder="https://example.com/journal" required>
+                </label>
+
+                <button type="submit">Выпустить электронную версию</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Распространить выпуск</h2>
+
+            <form action="{{ url_for('distribute') }}" method="post">
+                <label>
+                    ID выпуска
+                    <input type="number" name="edition_id" required>
+                </label>
+
+                <button type="submit">Распространить</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="card">
+        <h2>Авторы</h2>
+
+        {% if authors %}
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Организация</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for author_id, author in authors.items() %}
+                    <tr>
+                        <td>{{ author_id }}</td>
+                        <td>{{ author.name }}</td>
+                        <td>{{ author.affiliation }}</td>
+                        <td>{{ author.email }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Авторы отсутствуют.</p>
+        {% endif %}
+    </section>
+
+    <section class="card">
+        <h2>Редакторы</h2>
+
+        {% if editors %}
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Научная область</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for editor_id, editor in editors.items() %}
+                    <tr>
+                        <td>{{ editor_id }}</td>
+                        <td>{{ editor.name }}</td>
+                        <td>{{ editor.field }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Редакторы отсутствуют.</p>
+        {% endif %}
+    </section>
+
+    <section class="card">
+        <h2>Статьи</h2>
+
+        {% if articles %}
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Авторы</th>
+                    <th>Аннотация</th>
+                    <th>Статус</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article_id, article in articles.items() %}
+                    <tr>
+                        <td>{{ article_id }}</td>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.authors | join(", ") }}</td>
+                        <td>{{ article.abstract }}</td>
+                        <td>
+                            <span class="status">
+                                {{ article.status }}
+                            </span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Статьи отсутствуют.</p>
+        {% endif %}
+    </section>
+
+    <section class="card">
+        <h2>Журналы</h2>
+
+        {% if journals %}
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Научная область</th>
+                    <th>ID статей</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for journal_id, journal in journals.items() %}
+                    <tr>
+                        <td>{{ journal_id }}</td>
+                        <td>{{ journal.name }}</td>
+                        <td>{{ journal.field }}</td>
+                        <td>
+                            {% if journal.articles %}
+                                {{ journal.articles | join(", ") }}
+                            {% else %}
+                                Нет статей
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Журналы отсутствуют.</p>
+        {% endif %}
+    </section>
+
+</div>
+</body>
+</html>
